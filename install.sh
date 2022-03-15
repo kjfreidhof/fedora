@@ -23,12 +23,6 @@ while true;do
 	esac
 done
 
-# this here checks the system for updates 
-# and applys the updates 
-sudo dnf check-update 
-
-sudo dnf -y upgrade
-
 # This here installs the packages from the plugins.txt
 
 cat /home/"$USERNAME"/Downloads/fedora/plugins.txt | xargs sudo dnf -y install
