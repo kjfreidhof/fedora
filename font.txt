@@ -1,0 +1,9 @@
+cabextract
+
+xorg-x11-font-utils
+
+fontconfig
+
+curl
+
+
