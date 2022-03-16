@@ -1,1 +1,0 @@
-lame\* --exclude=lame-devel
