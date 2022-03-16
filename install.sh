@@ -8,7 +8,7 @@
 
 
 # this is a warning message
-echo "run this script at your own risk"
+echo "r:un this script at your own risk"
 echo "I am not responsible for what happens to your system"
 echo "when you install this script"
 
@@ -39,7 +39,7 @@ dnf install $(cat /home/"$USERNAME"/fedora/project/mm.txt)
 
 
 # This here installs lame from lame.txt 
-dnf install $(cat /home/"$USERNAME"/Downloads/fedora/lame.txt)
+dnf -y install lame\* --exclude=lame-devel
 
 # this upgrades the media 
 sudo dnf group upgrade --with-optional Multimedia
@@ -52,3 +52,38 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 # this here installs all my packages from pkg.txt 
 
 dnf install $(cat /home/"$USERNAME"/Downloads/fedora/pkg.txt)
+# this shows the user what packages are being uninstalled
+cat remove.txt
+
+# this asks the user if they want to remove the following packages by
+# typing yes or no if they type no it will exit the script if they type yes
+# it will excecute remove the packages from the list 
+while true;do 
+	read -p "Do you want to remove the followig packages?" yn
+	case $yn in
+		[Yy]*)make install; break;;
+		[Nn]*)exit;;
+		*) echo "please answer yes or no." ;;
+	esac
+done
+# this removes the packages from the fedora when the command is excecuted
+dnf -y remove $(cat /home/"$USERNAME"/Downloads/fedora/remove.txt)
+# this well remove any uneccsary packages
+dnf autoremove
+# this exits out of the script 
+exit 
+
+
+
+
+
+
+
+
+
+
+
+
+dnf remove $(cat /home/"$USERNAME"/Downloads/fedora/remove.txt
+
+
