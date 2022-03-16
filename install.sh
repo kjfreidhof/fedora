@@ -25,21 +25,21 @@ done
 
 # This here installs the packages from the plugins.txt
 
-sudo dnf -y install $(cat /home/"$USERNAME"/Downloads/fedora/plugins.txt)
+sudo -y dnf install $(cat /home/"$USERNAME"/Downloads/fedora/plugins.txt)
 
 # This here installs the dependencies for fonts from the font.txt file 
-sudo dnf -y install (cat /home/"$USERNAME"/Downloads/fedora/font.txt) 
+sudo -y dnf install $(cat /home/"$USERNAME"/Downloads/fedora/font.txt) 
 
 # This here installs other fonts to your system 
 sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 
 # This installs all the format media from the mm.txt file
-sudo dnf -y install (cat /home/"$USERNAME"/fedora/project/mm.txt)
+sudo -y dnf install $(cat /home/"$USERNAME"/fedora/project/mm.txt)
 
 
 # This here installs lame from lame.txt 
-sudo dnf -y install $(cat /home/"$USERNAME"/Downloads/fedora/lame.txt)
+sudo -y dnf install $(cat /home/"$USERNAME"/Downloads/fedora/lame.txt)
 
 # this upgrades the media 
 sudo dnf group upgrade --with-optional Multimedia
@@ -51,4 +51,4 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 # this here installs all my packages from pkg.txt 
 
-sudo dnf -y install (cat /home/"$USERNAME"/Downloads/fedora/pkg.txt)
+sudo -y dnf install $(cat /home/"$USERNAME"/Downloads/fedora/pkg.txt)
