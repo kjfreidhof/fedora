@@ -4,11 +4,29 @@
 # what this script does is that it installs all the programs
 # that i use in fedora 
 # and removes some of the programs
+# Init 
+
+FILE="/tmp/out.$$"
+GREP="/bin/grep"
+#....
+
+# Make sure the user runs this script as root 
+
+if [ "$(id -u)" != "0" ]; then
+	echo "This script must be ran as root"
+	echo "using sudo"
+	exit 1
+
+fi
+
+# ...
+
+
 
 
 
 # this is a warning message
-echo "r:un this script at your own risk"
+echo "run this script at your own risk"
 echo "I am not responsible for what happens to your system"
 echo "when you install this script"
 
@@ -58,6 +76,9 @@ cat remove.txt
 # this asks the user if they want to remove the following packages by
 # typing yes or no if they type no it will exit the script if they type yes
 # it will excecute remove the packages from the list 
+
+
+
 while true;do 
 	read -p "Do you want to remove the followig packages?" yn
 	case $yn in
