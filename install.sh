@@ -80,7 +80,7 @@ cat remove.txt
 
 
 while true;do 
-	read -p "Do you want to remove the followig packages?" yn
+	read -p "Do you want to remove the following packages?" yn
 	case $yn in
 		[Yy]*)make install; break;;
 		[Nn]*)exit;;
