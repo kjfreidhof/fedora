@@ -6,6 +6,9 @@
 # and removes some of the programs
 # Init 
 
+
+
+
 FILE="/tmp/out.$$"
 GREP="/bin/grep"
 #....
@@ -49,23 +52,23 @@ dnf install $(cat /home/"$USERNAME"/Downloads/fedora/plugins.txt)
 dnf install $(cat /home/"$USERNAME"/Downloads/fedora/font.txt) 
 
 # This here installs other fonts to your system 
-sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 
 # This installs all the format media from the mm.txt file
-dnf install $(cat /home/"$USERNAME"/fedora/project/mm.txt)
+cat /home/"$USERNAME"/fedora/project/mm.txt | xargs dnf install 
 
 
 # This here installs lame from lame.txt 
 dnf -y install lame\* --exclude=lame-devel
 
 # this upgrades the media 
-sudo dnf group upgrade --with-optional Multimedia
+dnf group upgrade --with-optional Multimedia
 
 # the two other piceses of code adds brave to your system 
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 # this here installs all my packages from pkg.txt 
 
@@ -93,17 +96,6 @@ dnf -y remove $(cat /home/"$USERNAME"/Downloads/fedora/remove.txt)
 dnf autoremove
 # this exits out of the script 
 exit 
-
-
-
-
-
-
-
-
-
-
-
 
 dnf remove $(cat /home/"$USERNAME"/Downloads/fedora/remove.txt
 
